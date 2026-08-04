@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>House Price Predictor</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🏠 House Price Predictor</h1>
+
+<form action="/predict" method="POST">
+
+<label>Overall Quality (1-10)</label>
+<input type="number" name="OverallQual" required>
+
+<label>Living Area (sq ft)</label>
+<input type="number" name="GrLivArea" required>
+
+<label>Garage Cars</label>
+<input type="number" name="GarageCars" required>
+
+<label>Garage Area (sq ft)</label>
+<input type="number" name="GarageArea" required>
+
+<label>Total Basement Area</label>
+<input type="number" name="TotalBsmtSF" required>
+
+<label>First Floor Area</label>
+<input type="number" name="FirstFlrSF" required>
+
+<label>Full Bathrooms</label>
+<input type="number" name="FullBath" required>
+
+<label>Total Rooms Above Ground</label>
+<input type="number" name="TotRmsAbvGrd" required>
+
+<label>Year Built</label>
+<input type="number" name="YearBuilt" required>
+
+<label>Year Remodeled</label>
+<input type="number" name="YearRemodAdd" required>
+
+<button type="submit">
+
+Predict Price
+
+</button>
+
+</form>
+
+{% if prediction %}
+
+<div class="result">
+
+<h2>Estimated House Price</h2>
+
+<h3>${{ prediction }}</h3>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+
+</html>
